@@ -1,5 +1,5 @@
-#ifndef GAME
-#define GAME
+#ifndef GAME_H
+#define GAME_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,8 +7,14 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_image.h>
 
-//Gamestates will be in enum or smth. Later will be used to change scenes: Menu, Game, Endgame, maybe even something more
 
+typedef enum GameState {
+    MENU,
+    END,
+    PLAYED
+};
+
+enum Gamestate State = MENU;
 
 //methods i would like to use anywhere that would not be connected to any unrelated header file
 bool game_Collide(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
@@ -19,6 +25,20 @@ bool game_Collide(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2,
     if (ay2 < by1) return false;
 
     return true;
+}
+
+void game_Update() {
+    switch (State) {
+    case 0:
+
+        break;
+    case 1:
+
+        break;
+    case 2:
+
+        break;
+    }
 }
 
 

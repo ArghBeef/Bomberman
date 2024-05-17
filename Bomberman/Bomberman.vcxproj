@@ -76,6 +76,7 @@
     <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
     <Allegro_AddonAudio>true</Allegro_AddonAudio>
     <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Allegro_AddonFont>true</Allegro_AddonFont>
@@ -83,6 +84,7 @@
     <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
     <Allegro_AddonAudio>true</Allegro_AddonAudio>
     <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -149,10 +151,13 @@
   <ItemGroup>
     <ClInclude Include="src\Block.h" />
     <ClInclude Include="src\Bomb.h" />
+    <ClInclude Include="src\Bonus.h" />
     <ClInclude Include="src\Explosion.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Map.h" />
+    <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\Sound.h" />
     <ClInclude Include="src\Sprites.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

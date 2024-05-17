@@ -1,10 +1,9 @@
-#ifndef SPRITE
-#define SPRITE
+#ifndef SPRITE_H
+#define SPRITE_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <allegro5/allegro5.h>
-#include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_image.h>
 
 //63 feel unconsistent but with 64 it creates some visual bugs so why not?
@@ -17,13 +16,15 @@ typedef struct SPRITES {
     ALLEGRO_BITMAP* NIKITA;
     ALLEGRO_BITMAP* BRICK;
     ALLEGRO_BITMAP* DESTRUCTABLE;
-    ALLEGRO_BITMAP* PLAYER0; //I could do an array Player[2] but 
-    ALLEGRO_BITMAP* PLAYER1; // in player_Draw there is "expected a field name" error
-    ALLEGRO_BITMAP* BOMBA; //and I dont know what to do ;(
+    ALLEGRO_BITMAP* PLAYER0;
+    ALLEGRO_BITMAP* PLAYER1;
+    ALLEGRO_BITMAP* BOMBA;
     ALLEGRO_BITMAP* EXPLOSIONE;
+    ALLEGRO_BITMAP* GAMEBACK;
 } Sprites;
 
 
+Sprites sprites;
 //Function used to extract eeeeeeeee i forgot.. things from spritesheet
 ALLEGRO_BITMAP* sprite_ExtractBitmap(int x, int y, int w, int h, Sprites* spriteS)
 {
@@ -39,6 +40,7 @@ ALLEGRO_BITMAP* sprite_ExtractBitmap(int x, int y, int w, int h, Sprites* sprite
 //Loading sprites from spritesheet
 void sprite_Load(Sprites* spriteS) {
     spriteS->spritesheet = al_load_bitmap("resources/spritesheet.png");
+    spriteS->GAMEBACK = al_load_bitmap("resources/gameback.png");
 
     if (!spriteS->spritesheet) {
         printf("FAIL: Couldnt load spritesheet!");
@@ -71,6 +73,7 @@ void sprites_Delete(Sprites spriteS) {
     al_destroy_bitmap(spriteS.PLAYER0);
     al_destroy_bitmap(spriteS.PLAYER1);
     al_destroy_bitmap(spriteS.NIKITA);
+    al_destroy_bitmap(spriteS.GAMEBACK);
 
     al_destroy_bitmap(spriteS.spritesheet);
 
