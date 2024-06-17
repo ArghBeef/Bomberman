@@ -13,18 +13,17 @@
 #include "Sprites.h"
 #include "Player.h"
 #include "Bomb.h"
-#include "Block.h"
 #include "Explosion.h"
 #include "Bonus.h"
 #include "Menu.h"
 #include "Sound.h"
 
 
-
+///! Funkcja main
 int main()
 {
     srand(time(NULL));
-    ////////////////INITS////////////////////
+    //! Inicjalizacja elementow Allegro
     al_init();
     al_install_keyboard();
     ALLEGRO_TIMER* timer = al_create_timer(1.0 / 30.0);

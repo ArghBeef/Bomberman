@@ -13,25 +13,35 @@
 #include "Map.h"
 #include "Sound.h"
 
+///Czas dzialania bonusu
 #define BONUS_TIMERP 250;
 
+//! Struktura opisujaca gracza
 typedef struct PLAYERS {
-    int ID;
-    bool alive;
-    bool bombPlaced;
-    int x, y;
-    int xBomb, yBomb; // to determine the direction where to put the bomb
-    int reload;
-    int currentBonus;
-    int bonusTimer;
-    int isBonus;
-    int score;
+    int ID; ///< ID gracza
+    bool alive; ///< Czy gracz zyje (istnieje)
+    bool bombPlaced; ///< Czy gracz podlozyl bombe
+    int x; ///< Wspolrzedne X
+    int y; ///< Wspolrzedne Y
+    int xBomb; ///< Okreslic kierunek, w ktorym nalezy umiescic bombe po X
+    int yBomb; ///< Okreslic kierunek, w ktorym nalezy umiescic bombe po Y
+    int reload; ///< Przeladowanie bomby
+    int currentBonus; ///< Jaki bonus ma gracz
+    int bonusTimer; ///< Czas dzialania bonusu
+    int isBonus; ///< Czy gracz ma bonus
+    int score; ///< Wynik na podstawie zebranych bonusow
 } Player;
 
-int loserID;
-Player player1;
-Player player2;
+int loserID; ///< Zmiana dla przegranego gracza
+Player player1; ///< Zmiana gracza 1
+Player player2; ///< Zmiana gracza 2
 
+/**
+* Funkcja do stworzenia gracza
+* @param pID ID gracza
+* @param pStartPosition Pozycja poczatkowa
+* @retval Zwracanie stworzonego gracza
+*/
 Player player_Create(int pID, int pStartPosition) {
 
     if (pID > 1) {
@@ -73,6 +83,13 @@ Player player_Create(int pID, int pStartPosition) {
     return player;
 }
 
+/**
+* Sprawdzenie kolizji gracza miedzy blokami
+* @param nextX Wspolrzedne X dla przyszlosci
+* @param nextY Wspolrzedne Y dla przyszlosci
+* @retval TRUE: Jezeli blok i gracz znajduja sie w tym samym miejscu
+* @retval FALSE: Przeciwny wypadek
+*/
 bool player_CheckCollision(int nextX, int nextY) {
     for (int H = 0; H < TILENUM_H; H++) {
         for (int W = 0; W < TILENUM_W; W++) {
@@ -84,10 +101,14 @@ bool player_CheckCollision(int nextX, int nextY) {
         }
     }
     return false;
-    //Idk, but it might seem logic to set another pair of cordinates for bounding box of block to y/x+SpriteSize but it doesnt work and instead
-    //player collides with the block and the block arround 1 tile (an area 2X2). Setting bounding box to just x and y do a trick so I will leave it like this ;S
 }
 
+/**
+* Sprawdzenie kolizji gracza z explozja
+* @param player Gracz
+* @retval TRUE: Jezeli explozja i gracz znajduja sie w tym samym miejscu
+* @retval FALSE: Przeciwny wypadek
+*/
 bool player_CheckExplode(Player* player) {
     for (int i = 0; i < EXPL_NUM; i++) {
         if (expl[i].isActive) {
@@ -100,6 +121,10 @@ bool player_CheckExplode(Player* player) {
     return false;
 }
 
+/**
+* Sprawdzenie kolizji gracza z bonusami
+* @param player Gracz
+*/
 bool player_CheckBonus(Player* player) {
     for (int i = 0; i < BONUS_NUM; i++) {
         if (bonus[i].isDropped) {
@@ -116,7 +141,13 @@ bool player_CheckBonus(Player* player) {
     return false;
 }
 
-
+/**
+* Aktualizacja stanu gracza
+* @param player Gracz
+* @param even Eventy
+* @param blocks Bloki
+* @param expl Explozje
+*/
 void player_Update(Player* player, ALLEGRO_EVENT* event, Block blocks[TILENUM_H][TILENUM_W], Explosion* expl) {
     if (!player->alive) //Set a flag for END : GameState
         return;
@@ -253,24 +284,24 @@ void player_Update(Player* player, ALLEGRO_EVENT* event, Block blocks[TILENUM_H]
             loserID = 1;
             break;
         case 1:
-            loserID = 2;
+            loserID = 0;
             break;
         }
     }
 }
 
 
-
-void player_Draw(Player* player, Sprites spriteP) {
+//! Rysowanie gracza na ekranie
+void player_Draw(Player* player) {
     if (!player->alive) //Make game end (flag) depending on the player ID
         return;
 
     switch (player->ID) {
     case 0:
-        al_draw_bitmap(spriteP.PLAYER0, player->x, player->y, 0);
+        al_draw_bitmap(sprites.PLAYER0, player->x, player->y, 0);
         break;
     case 1:
-        al_draw_bitmap(spriteP.PLAYER1, player->x, player->y, 0);
+        al_draw_bitmap(sprites.PLAYER1, player->x, player->y, 0);
         break;
 
     }

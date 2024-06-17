@@ -1,0 +1,47 @@
+\doxysection{Menu.\+h}
+\label{_menu_8h_source}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Menu.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Menu.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MENU\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MENU\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <allegro5/allegro5.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_primitives.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_image.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_font.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_ttf.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Sprites.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Player.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ HUD\_STARTX\ 550}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ HUD\_STARTY\ 750}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ ALLEGRO\_FONT*\ font;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ bonuses[]\ =\ \{\ \textcolor{stringliteral}{"{}Bomb\ Reload"{}},\ \textcolor{stringliteral}{"{}Bigger\ Radius"{}},\ \textcolor{stringliteral}{"{}Sabotage"{}},\ \textcolor{stringliteral}{"{}Emptiness"{}}\};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ hud\_init()}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ font\ =\ al\_load\_ttf\_font(\textcolor{stringliteral}{"{}resources/tf2.ttf"{}},\ 22,\ 0);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (!font)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}FAIL:\ Couldnt\ load\ font!"{}});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ hud\_Draw(Player*\ player,\ \textcolor{keywordtype}{int}\ positionx,\ \textcolor{keywordtype}{int}\ positiony)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ al\_draw\_textf(font,\ al\_map\_rgb(255,\ 255,\ 255),\ HUD\_STARTX\ +\ positionx,\ HUD\_STARTY\ +\ positiony,\ ALLEGRO\_ALIGN\_CENTER,\ \textcolor{stringliteral}{"{}Player\ \%d:"{}},player-\/>ID);}
+\DoxyCodeLine{00039\ \ \ \ \ al\_draw\_textf(font,\ al\_map\_rgb(255,\ 255,\ 255),\ HUD\_STARTX\ +\ positionx,\ HUD\_STARTY\ +\ positiony\ +\ 25,\ ALLEGRO\_ALIGN\_CENTER,\ \textcolor{stringliteral}{"{}Score:\%d"{}},\ player-\/>score);}
+\DoxyCodeLine{00040\ \ \ \ \ al\_draw\_textf(font,\ al\_map\_rgb(255,\ 255,\ 255),\ HUD\_STARTX\ +\ positionx,\ HUD\_STARTY\ +\ positiony\ +\ 50\ ,\ ALLEGRO\_ALIGN\_CENTER,\ \textcolor{stringliteral}{"{}Current\ Bonus:\%s"{}},\ bonuses[player-\/>currentBonus]);}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ hud\_Delete()\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ al\_destroy\_font(font);}
+\DoxyCodeLine{00046\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

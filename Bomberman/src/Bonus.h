@@ -1,4 +1,4 @@
-#ifndef BONUS_H
+﻿#ifndef BONUS_H
 #define BONUS_H
 
 #include <stdio.h>
@@ -10,20 +10,26 @@
 
 #include "Sprites.h"
 
+///Ilosc mozliwych bonusow na mapie
 #define BONUS_NUM 32
+///Czas zycia bonusow
 #define BONUS_LIFESPAN 300
-#define BONUS_RANDOM 0.35 // 35% chance
+///Liczba okreslajaca prawdopodobienstwo pojawienia sie bonusu
+#define BONUS_RANDOM 0.35
 
+//! Struktura opisujaca bonus
 typedef struct BONUS {
-    int x;
-    int y;
-    int type;
-    bool isDropped;
-    int lifespan;
+    int x; ///< Wspolrzedne X
+    int y; ///< Wspolrzedne Y
+    int type; ///< Typ bonusu
+    bool isDropped; ///< Czy istnieje
+    int lifespan; ///< Czas zycia bonusu
 } Bonus;
 
+///Zmiena dla bomb (tablica)
 Bonus bonus[BONUS_NUM];
 
+//! Ustawienie statusu wszystkich bonusow "isDropped" na "false" i "lifespan" na 0
 void bonus_ClearAll() {
     for (int i = 0; i < BONUS_NUM; i++) {
         bonus[i].isDropped = false;
@@ -31,6 +37,11 @@ void bonus_ClearAll() {
     }
 }
 
+/**
+* Dodawania bonusu
+* @param x Wspolrzedne X
+* @param y Wspolrzedne Y
+*/
 void bonus_Create(int x, int y) {
     if ((rand() / (double)RAND_MAX) < BONUS_RANDOM) {
         for (int i = 0; i < BONUS_NUM; i++) {
@@ -45,7 +56,7 @@ void bonus_Create(int x, int y) {
         }
     }
 }
-
+//! Aktualizacja stanu bonusow
 void bonus_Update() {
     for (int i = 0; i < BONUS_NUM; i++) {
         if (bonus[i].isDropped) {
@@ -57,6 +68,7 @@ void bonus_Update() {
     }
 }
 
+//! Rysowanie bonusow na ekranie
 void bonus_Draw() {
     for (int i = 0; i < BONUS_NUM; i++) {
         if (bonus[i].isDropped) {

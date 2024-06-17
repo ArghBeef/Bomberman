@@ -1,0 +1,80 @@
+\doxysection{Bomb.\+h}
+\label{_bomb_8h_source}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Bomb.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Bomb.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BOMB\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BOMB\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <allegro5/allegro5.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_primitives.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_image.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Sprites.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Sound.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Explosion.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ BOMB\_NUM\ 8}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ BOMB\_TIME\ 30}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }BOMBS\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ x;\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ y;\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPlaced;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ time;\ }
+\DoxyCodeLine{00025\ \}Bomb;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ Bomb\ bombs[BOMB\_NUM];}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ bomb\_ClearAll()\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ BOMB\_NUM;\ i++)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ bombs[i].isPlaced\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ bomb\_Add(\textcolor{keywordtype}{int}\ lastX,\ \textcolor{keywordtype}{int}\ lastY)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ BOMB\_NUM;\ i++)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bombs[i].isPlaced)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ bombs[i].time\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ bombs[i].x\ =\ lastX;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ bombs[i].y\ =\ lastY;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ bombs[i].isPlaced\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ bomb\_Draw()\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ BOMB\_NUM;\ i++)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!bombs[i].isPlaced)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bombs[i].time\ <=\ BOMB\_TIME*2)\ \{\ \textcolor{comment}{//Show\ a\ normal\ sprite}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ al\_draw\_bitmap(sprites.BOMBA,\ bombs[i].x,\ bombs[i].y,\ 0);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((bombs[i].time\ /\ 5)\ \%\ 3)\ ==\ 1)\ \textcolor{comment}{//Blink\ for\ last\ ticks}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ al\_draw\_bitmap(sprites.BOMBA,\ bombs[i].x,\ bombs[i].y,\ 0);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ bomb\_Update()\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ BOMB\_NUM;\ i++)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!bombs[i].isPlaced)}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ bombs[i].time++;\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bombs[i].time\ >=\ BOMB\_TIME*4)\ \{\ \textcolor{comment}{//the\ default\ is\ 90\ (arround\ 3\ seconds)\ but\ for\ powerups\ I\ will\ change\ it\ (To\ detonate\ faster\ or\ slower\ or\ even\ controled\ explode)}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ al\_play\_sample(sounds.EXPLODE,\ 0.5,\ 0.0,\ 1.0,\ ALLEGRO\_PLAYMODE\_ONCE,\ NULL);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ explosion\_Add(bombs[i].x,\ bombs[i].y);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ bombs[i].isPlaced\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

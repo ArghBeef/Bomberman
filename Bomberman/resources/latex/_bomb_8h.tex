@@ -1,0 +1,138 @@
+\doxysection{C\+:/\+Users/\+Arghbeef/\+Documents/\+Open\+GL/\+Bomberman/\+Bomberman/src/\+Bomb.h File Reference}
+\label{_bomb_8h}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Bomb.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Bomb.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+primitives.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include "{}Sprites.\+h"{}}\newline
+{\ttfamily \#include "{}Sound.\+h"{}}\newline
+{\ttfamily \#include "{}Explosion.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ BOMBS}
+\begin{DoxyCompactList}\small\item\em Struktura opisujaca bombe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ BOMB\+\_\+\+NUM}~8
+\begin{DoxyCompactList}\small\item\em Ilosc mozliwych bomb na mapie. \end{DoxyCompactList}\item 
+\#define \textbf{ BOMB\+\_\+\+TIME}~30
+\begin{DoxyCompactList}\small\item\em Najmniejsza jednostka czasu do obliczenia detonacji bomby. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ BOMBS} \textbf{ Bomb}
+\begin{DoxyCompactList}\small\item\em Struktura opisujaca bombe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ bomb\+\_\+\+Clear\+All} ()
+\begin{DoxyCompactList}\small\item\em Ustawienie statusu wszystkich bomb "{}is\+Placed"{} na "{}false"{}. \end{DoxyCompactList}\item 
+void \textbf{ bomb\+\_\+\+Add} (int lastX, int lastY)
+\item 
+void \textbf{ bomb\+\_\+\+Draw} ()
+\begin{DoxyCompactList}\small\item\em Rysowanie bomb na ekranie. \end{DoxyCompactList}\item 
+void \textbf{ bomb\+\_\+\+Update} ()
+\begin{DoxyCompactList}\small\item\em Aktualizacja stanu bomb. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Bomb} \textbf{ bombs} [\textbf{ BOMB\+\_\+\+NUM}]
+\begin{DoxyCompactList}\small\item\em Zmiena dla bomb (tablica) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\index{Bomb.h@{Bomb.h}!BOMB\_NUM@{BOMB\_NUM}}
+\index{BOMB\_NUM@{BOMB\_NUM}!Bomb.h@{Bomb.h}}
+\doxysubsubsection{BOMB\_NUM}
+{\footnotesize\ttfamily \label{_bomb_8h_af8ab7e8d21898602a7aa28dc7d6bdcc3} 
+\#define BOMB\+\_\+\+NUM~8}
+
+
+
+Ilosc mozliwych bomb na mapie. 
+
+\index{Bomb.h@{Bomb.h}!BOMB\_TIME@{BOMB\_TIME}}
+\index{BOMB\_TIME@{BOMB\_TIME}!Bomb.h@{Bomb.h}}
+\doxysubsubsection{BOMB\_TIME}
+{\footnotesize\ttfamily \label{_bomb_8h_a2c73ade0fd7bbb0c81e983909ee8ee6d} 
+\#define BOMB\+\_\+\+TIME~30}
+
+
+
+Najmniejsza jednostka czasu do obliczenia detonacji bomby. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\index{Bomb.h@{Bomb.h}!Bomb@{Bomb}}
+\index{Bomb@{Bomb}!Bomb.h@{Bomb.h}}
+\doxysubsubsection{Bomb}
+{\footnotesize\ttfamily \label{_bomb_8h_a8cbb72091856a040db2de87053ed1993} 
+typedef struct \textbf{ BOMBS} \textbf{ Bomb}}
+
+
+
+Struktura opisujaca bombe. 
+
+
+
+\doxysubsection{Function Documentation}
+\index{Bomb.h@{Bomb.h}!bomb\_Add@{bomb\_Add}}
+\index{bomb\_Add@{bomb\_Add}!Bomb.h@{Bomb.h}}
+\doxysubsubsection{bomb\_Add()}
+{\footnotesize\ttfamily \label{_bomb_8h_acabc990f0f56c68521bd1e471d10c264} 
+void bomb\+\_\+\+Add (\begin{DoxyParamCaption}\item[{int}]{lastX}{, }\item[{int}]{lastY}{}\end{DoxyParamCaption})}
+
+Funkcja dodawania bomby za kazdym razem, gdy gracz nacisnie klawisz 
+\begin{DoxyParams}{Parameters}
+{\em lastX} & Wspolrzedne X \\
+\hline
+{\em lastY} & Wspolrzedne Y \\
+\hline
+\end{DoxyParams}
+\index{Bomb.h@{Bomb.h}!bomb\_ClearAll@{bomb\_ClearAll}}
+\index{bomb\_ClearAll@{bomb\_ClearAll}!Bomb.h@{Bomb.h}}
+\doxysubsubsection{bomb\_ClearAll()}
+{\footnotesize\ttfamily \label{_bomb_8h_a91a419cce8bd928e1c68905917d77fdc} 
+void bomb\+\_\+\+Clear\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ustawienie statusu wszystkich bomb "{}is\+Placed"{} na "{}false"{}. 
+
+\index{Bomb.h@{Bomb.h}!bomb\_Draw@{bomb\_Draw}}
+\index{bomb\_Draw@{bomb\_Draw}!Bomb.h@{Bomb.h}}
+\doxysubsubsection{bomb\_Draw()}
+{\footnotesize\ttfamily \label{_bomb_8h_a78a84af39b1f0f71b599154c57586b29} 
+void bomb\+\_\+\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Rysowanie bomb na ekranie. 
+
+\index{Bomb.h@{Bomb.h}!bomb\_Update@{bomb\_Update}}
+\index{bomb\_Update@{bomb\_Update}!Bomb.h@{Bomb.h}}
+\doxysubsubsection{bomb\_Update()}
+{\footnotesize\ttfamily \label{_bomb_8h_ad82baaf70a6977dd4df9b99c1970e580} 
+void bomb\+\_\+\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Aktualizacja stanu bomb. 
+
+
+
+\doxysubsection{Variable Documentation}
+\index{Bomb.h@{Bomb.h}!bombs@{bombs}}
+\index{bombs@{bombs}!Bomb.h@{Bomb.h}}
+\doxysubsubsection{bombs}
+{\footnotesize\ttfamily \label{_bomb_8h_a2e209368cfb869d465e8516fcf73597f} 
+\textbf{ Bomb} bombs[\textbf{ BOMB\+\_\+\+NUM}]}
+
+
+
+Zmiena dla bomb (tablica) 
+

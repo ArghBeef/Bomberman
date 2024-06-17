@@ -1,0 +1,207 @@
+\doxysection{C\+:/\+Users/\+Arghbeef/\+Documents/\+Open\+GL/\+Bomberman/\+Bomberman/src/\+Player.h File Reference}
+\label{_player_8h}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Player.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Player.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+audio.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+acodec.\+h$>$}\newline
+{\ttfamily \#include "{}Sprites.\+h"{}}\newline
+{\ttfamily \#include "{}Bomb.\+h"{}}\newline
+{\ttfamily \#include "{}Map.\+h"{}}\newline
+{\ttfamily \#include "{}Sound.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ PLAYERS}
+\begin{DoxyCompactList}\small\item\em Struktura opisujaca gracza. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ BONUS\+\_\+\+TIMERP}~250;
+\begin{DoxyCompactList}\small\item\em Czas dzialania bonusu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ PLAYERS} \textbf{ Player}
+\begin{DoxyCompactList}\small\item\em Struktura opisujaca gracza. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Player} \textbf{ player\+\_\+\+Create} (int p\+ID, int p\+Start\+Position)
+\item 
+bool \textbf{ player\+\_\+\+Check\+Collision} (int nextX, int nextY)
+\item 
+bool \textbf{ player\+\_\+\+Check\+Explode} (\textbf{ Player} $\ast$player)
+\item 
+bool \textbf{ player\+\_\+\+Check\+Bonus} (\textbf{ Player} $\ast$player)
+\item 
+void \textbf{ player\+\_\+\+Update} (\textbf{ Player} $\ast$player, ALLEGRO\+\_\+\+EVENT $\ast$event, \textbf{ Block} \textbf{ blocks}[\textbf{ TILENUM\+\_\+H}][\textbf{ TILENUM\+\_\+W}], \textbf{ Explosion} $\ast$\textbf{ expl})
+\item 
+void \textbf{ player\+\_\+\+Draw} (\textbf{ Player} $\ast$player)
+\begin{DoxyCompactList}\small\item\em Rysowanie gracza na ekranie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ loser\+ID}
+\begin{DoxyCompactList}\small\item\em Zmiana dla przegranego gracza. \end{DoxyCompactList}\item 
+\textbf{ Player} \textbf{ player1}
+\begin{DoxyCompactList}\small\item\em Zmiana gracza 1. \end{DoxyCompactList}\item 
+\textbf{ Player} \textbf{ player2}
+\begin{DoxyCompactList}\small\item\em Zmiana gracza 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\index{Player.h@{Player.h}!BONUS\_TIMERP@{BONUS\_TIMERP}}
+\index{BONUS\_TIMERP@{BONUS\_TIMERP}!Player.h@{Player.h}}
+\doxysubsubsection{BONUS\_TIMERP}
+{\footnotesize\ttfamily \label{_player_8h_a288b07646792e066e301c65cc14ad3a3} 
+\#define BONUS\+\_\+\+TIMERP~250;}
+
+
+
+Czas dzialania bonusu. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\index{Player.h@{Player.h}!Player@{Player}}
+\index{Player@{Player}!Player.h@{Player.h}}
+\doxysubsubsection{Player}
+{\footnotesize\ttfamily \label{_player_8h_a2be14ff86312ffaefa78473e0df5933d} 
+typedef struct \textbf{ PLAYERS} \textbf{ Player}}
+
+
+
+Struktura opisujaca gracza. 
+
+
+
+\doxysubsection{Function Documentation}
+\index{Player.h@{Player.h}!player\_CheckBonus@{player\_CheckBonus}}
+\index{player\_CheckBonus@{player\_CheckBonus}!Player.h@{Player.h}}
+\doxysubsubsection{player\_CheckBonus()}
+{\footnotesize\ttfamily \label{_player_8h_adcb4a97d22c372cb0f0fb28d350434d0} 
+bool player\+\_\+\+Check\+Bonus (\begin{DoxyParamCaption}\item[{\textbf{ Player} $\ast$}]{player}{}\end{DoxyParamCaption})}
+
+Sprawdzenie kolizji gracza z bonusami 
+\begin{DoxyParams}{Parameters}
+{\em player} & Gracz \\
+\hline
+\end{DoxyParams}
+\index{Player.h@{Player.h}!player\_CheckCollision@{player\_CheckCollision}}
+\index{player\_CheckCollision@{player\_CheckCollision}!Player.h@{Player.h}}
+\doxysubsubsection{player\_CheckCollision()}
+{\footnotesize\ttfamily \label{_player_8h_a75292c47c195efae08701d3a581182d8} 
+bool player\+\_\+\+Check\+Collision (\begin{DoxyParamCaption}\item[{int}]{nextX}{, }\item[{int}]{nextY}{}\end{DoxyParamCaption})}
+
+Sprawdzenie kolizji gracza miedzy blokami 
+\begin{DoxyParams}{Parameters}
+{\em nextX} & Wspolrzedne X dla przyszlosci \\
+\hline
+{\em nextY} & Wspolrzedne Y dla przyszlosci \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em TRUE} & Jezeli blok i gracz znajduja sie w tym samym miejscu \\
+\hline
+{\em FALSE} & Przeciwny wypadek \\
+\hline
+\end{DoxyRetVals}
+\index{Player.h@{Player.h}!player\_CheckExplode@{player\_CheckExplode}}
+\index{player\_CheckExplode@{player\_CheckExplode}!Player.h@{Player.h}}
+\doxysubsubsection{player\_CheckExplode()}
+{\footnotesize\ttfamily \label{_player_8h_a9f40baf84141f2a0fd6804aace9b3dd3} 
+bool player\+\_\+\+Check\+Explode (\begin{DoxyParamCaption}\item[{\textbf{ Player} $\ast$}]{player}{}\end{DoxyParamCaption})}
+
+Sprawdzenie kolizji gracza z explozja 
+\begin{DoxyParams}{Parameters}
+{\em player} & Gracz \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em TRUE} & Jezeli explozja i gracz znajduja sie w tym samym miejscu \\
+\hline
+{\em FALSE} & Przeciwny wypadek \\
+\hline
+\end{DoxyRetVals}
+\index{Player.h@{Player.h}!player\_Create@{player\_Create}}
+\index{player\_Create@{player\_Create}!Player.h@{Player.h}}
+\doxysubsubsection{player\_Create()}
+{\footnotesize\ttfamily \label{_player_8h_a77574d4ba52f86e4839be94be33892b5} 
+\textbf{ Player} player\+\_\+\+Create (\begin{DoxyParamCaption}\item[{int}]{p\+ID}{, }\item[{int}]{p\+Start\+Position}{}\end{DoxyParamCaption})}
+
+Funkcja do stworzenia gracza 
+\begin{DoxyParams}{Parameters}
+{\em p\+ID} & ID gracza \\
+\hline
+{\em p\+Start\+Position} & Pozycja poczatkowa \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Zwracanie} & stworzonego gracza \\
+\hline
+\end{DoxyRetVals}
+\index{Player.h@{Player.h}!player\_Draw@{player\_Draw}}
+\index{player\_Draw@{player\_Draw}!Player.h@{Player.h}}
+\doxysubsubsection{player\_Draw()}
+{\footnotesize\ttfamily \label{_player_8h_a9420b2c2b62b00087f90c6f6c181d2de} 
+void player\+\_\+\+Draw (\begin{DoxyParamCaption}\item[{\textbf{ Player} $\ast$}]{player}{}\end{DoxyParamCaption})}
+
+
+
+Rysowanie gracza na ekranie. 
+
+\index{Player.h@{Player.h}!player\_Update@{player\_Update}}
+\index{player\_Update@{player\_Update}!Player.h@{Player.h}}
+\doxysubsubsection{player\_Update()}
+{\footnotesize\ttfamily \label{_player_8h_a20dd9919d55982fcb5f9eea2497bd845} 
+void player\+\_\+\+Update (\begin{DoxyParamCaption}\item[{\textbf{ Player} $\ast$}]{player}{, }\item[{ALLEGRO\+\_\+\+EVENT $\ast$}]{event}{, }\item[{\textbf{ Block}}]{blocks}{[\+TILENUM\+\_\+\+H][\+TILENUM\+\_\+\+W], }\item[{\textbf{ Explosion} $\ast$}]{expl}{}\end{DoxyParamCaption})}
+
+Aktualizacja stanu gracza 
+\begin{DoxyParams}{Parameters}
+{\em player} & Gracz \\
+\hline
+{\em even} & Eventy \\
+\hline
+{\em blocks} & Bloki \\
+\hline
+{\em expl} & Explozje \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\index{Player.h@{Player.h}!loserID@{loserID}}
+\index{loserID@{loserID}!Player.h@{Player.h}}
+\doxysubsubsection{loserID}
+{\footnotesize\ttfamily \label{_player_8h_a810c69df0135196d25924a03f5240df7} 
+int loser\+ID}
+
+
+
+Zmiana dla przegranego gracza. 
+
+\index{Player.h@{Player.h}!player1@{player1}}
+\index{player1@{player1}!Player.h@{Player.h}}
+\doxysubsubsection{player1}
+{\footnotesize\ttfamily \label{_player_8h_a3e6e6f29084971899a686ce9a1a3387a} 
+\textbf{ Player} player1}
+
+
+
+Zmiana gracza 1. 
+
+\index{Player.h@{Player.h}!player2@{player2}}
+\index{player2@{player2}!Player.h@{Player.h}}
+\doxysubsubsection{player2}
+{\footnotesize\ttfamily \label{_player_8h_a35a776e3cebb62d6547a769980fef1c8} 
+\textbf{ Player} player2}
+
+
+
+Zmiana gracza 2. 
+

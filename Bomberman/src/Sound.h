@@ -7,7 +7,7 @@
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
 
-
+//! Struktura zawierajaca wszystki mozliwych dzwiekow
 typedef struct SOUNDS {
 	ALLEGRO_SAMPLE* SABOTAGE;
 	ALLEGRO_SAMPLE* EXPLODE;
@@ -19,8 +19,10 @@ typedef struct SOUNDS {
 
 }Sound;
 
+///Zmiena dla dzwiekow
 Sound sounds;
 
+//! Ladowanie dzwiekow
 void sound_Load() {
 	sounds.SABOTAGE = al_load_sample("sounds/sabotage.wav");
 	sounds.EXPLODE = al_load_sample("sounds/explode.wav");

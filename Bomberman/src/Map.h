@@ -8,7 +8,6 @@
 #include <allegro5/allegro_image.h>
 
 #include "Sprites.h"
-#include "Block.h"
 #include "Explosion.h"
 #include "Game.h"
 #include "Bonus.h"
@@ -19,6 +18,14 @@
 #define TILESTART_X 70 //Where does the level should be started in X
 #define TILESTART_Y 20 //the same but for Y
 
+typedef struct BLOCKS {
+    int x;
+    int y;
+    int type;
+    bool destructable;
+    bool collide;
+}Block;
+
 Block blocks[TILENUM_H][TILENUM_W];
 
 
@@ -26,8 +33,8 @@ Block blocks[TILENUM_H][TILENUM_W];
 bool block_checkexplode(Block* blocks, Explosion explosions[EXPL_NUM]) {
     for (int i = 0; i < EXPL_NUM; i++) {
         if (explosions[i].isActive) {
-                if (game_Collide(blocks->x, blocks->y, blocks->x, blocks->y, explosions[i].x, explosions[i].y, explosions[i].x + TILEBLOCK_SPRITE_SIZE, explosions[i].y + TILEBLOCK_SPRITE_SIZE))
-                    return true; //If it collides with explosion
+            if (game_Collide(blocks->x, blocks->y, blocks->x, blocks->y, explosions[i].x, explosions[i].y, explosions[i].x + TILEBLOCK_SPRITE_SIZE, explosions[i].y + TILEBLOCK_SPRITE_SIZE))
+                return true; //If it collides with explosion
 
         }
     }

@@ -1,0 +1,78 @@
+\doxysection{C\+:/\+Users/\+Arghbeef/\+Documents/\+Open\+GL/\+Bomberman/\+Bomberman/src/\+Game.h File Reference}
+\label{_game_8h}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Game.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Game.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+primitives.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+image.\+h$>$}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Game\+State} \{ \textbf{ MENU}
+, \textbf{ END}
+, \textbf{ PLAYED}
+ \}
+\begin{DoxyCompactList}\small\item\em enum definijucy stany gry \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ game\+\_\+\+Collide} (int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2)
+\begin{DoxyCompactList}\small\item\em Funkcja bazowa do sprawdzania kolizji miedzy obiektami. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+enum Gamestate \textbf{ State} = \textbf{ MENU}
+\begin{DoxyCompactList}\small\item\em Zmiana enum stanu gry wystawiona na poczatek = MENU. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\index{Game.h@{Game.h}!GameState@{GameState}}
+\index{GameState@{GameState}!Game.h@{Game.h}}
+\doxysubsubsection{GameState}
+{\footnotesize\ttfamily \label{_game_8h_a7899b65f1ea0f655e4bbf8d2a5714285} 
+enum \textbf{ Game\+State}}
+
+
+
+enum definijucy stany gry 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MENU@{MENU}!Game.h@{Game.h}}\index{Game.h@{Game.h}!MENU@{MENU}}}\label{_game_8h_a7899b65f1ea0f655e4bbf8d2a5714285} 
+MENU&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END@{END}!Game.h@{Game.h}}\index{Game.h@{Game.h}!END@{END}}}\label{_game_8h_a7899b65f1ea0f655e4bbf8d2a5714285} 
+END&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAYED@{PLAYED}!Game.h@{Game.h}}\index{Game.h@{Game.h}!PLAYED@{PLAYED}}}\label{_game_8h_a7899b65f1ea0f655e4bbf8d2a5714285} 
+PLAYED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\index{Game.h@{Game.h}!game\_Collide@{game\_Collide}}
+\index{game\_Collide@{game\_Collide}!Game.h@{Game.h}}
+\doxysubsubsection{game\_Collide()}
+{\footnotesize\ttfamily \label{_game_8h_a6e4d7a8630490ac8938c2042106b7640} 
+bool game\+\_\+\+Collide (\begin{DoxyParamCaption}\item[{int}]{ax1}{, }\item[{int}]{ay1}{, }\item[{int}]{ax2}{, }\item[{int}]{ay2}{, }\item[{int}]{bx1}{, }\item[{int}]{by1}{, }\item[{int}]{bx2}{, }\item[{int}]{by2}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja bazowa do sprawdzania kolizji miedzy obiektami. 
+
+
+
+\doxysubsection{Variable Documentation}
+\index{Game.h@{Game.h}!State@{State}}
+\index{State@{State}!Game.h@{Game.h}}
+\doxysubsubsection{State}
+{\footnotesize\ttfamily \label{_game_8h_a2373c18b630de51c3c2fc3ba1633c110} 
+enum Gamestate State = \textbf{ MENU}}
+
+
+
+Zmiana enum stanu gry wystawiona na poczatek = MENU. 
+

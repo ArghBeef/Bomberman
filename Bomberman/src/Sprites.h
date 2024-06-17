@@ -6,9 +6,10 @@
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_image.h>
 
-//63 feel unconsistent but with 64 it creates some visual bugs so why not?
+///Rozmiar sprajtu w pixelach
 #define TILEBLOCK_SPRITE_SIZE 63
 
+//! Struktura zawierajaca wszystki mozliwe sprajty
 typedef struct SPRITES {
     ALLEGRO_BITMAP* spritesheet;
 
@@ -24,8 +25,10 @@ typedef struct SPRITES {
 } Sprites;
 
 
+///Zmiena dla sprajtow
 Sprites sprites;
-//Function used to extract eeeeeeeee i forgot.. things from spritesheet
+
+//! Funkcja wyodrebniania wszystkich sprajtow z arkusza sprajtow
 ALLEGRO_BITMAP* sprite_ExtractBitmap(int x, int y, int w, int h, Sprites* spriteS)
 {
     ALLEGRO_BITMAP* sprite = al_create_sub_bitmap(spriteS->spritesheet, x, y, w, h);
@@ -37,7 +40,7 @@ ALLEGRO_BITMAP* sprite_ExtractBitmap(int x, int y, int w, int h, Sprites* sprite
     return sprite;
 }
 
-//Loading sprites from spritesheet
+//! Ladowanie sprajtow z arkusza sprajtow
 void sprite_Load(Sprites* spriteS) {
     spriteS->spritesheet = al_load_bitmap("resources/spritesheet.png");
     spriteS->GAMEBACK = al_load_bitmap("resources/gameback.png");
@@ -62,7 +65,7 @@ void sprite_Load(Sprites* spriteS) {
 
 }
 
-//It is what it says
+//! Usuwanie wszystkich sprajtow
 void sprites_Delete(Sprites spriteS) {
 
     al_destroy_bitmap(spriteS.BOMBA);

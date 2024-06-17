@@ -1,0 +1,147 @@
+\doxysection{C\+:/\+Users/\+Arghbeef/\+Documents/\+Open\+GL/\+Bomberman/\+Bomberman/src/\+Explosion.h File Reference}
+\label{_explosion_8h}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Explosion.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Explosion.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+primitives.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include "{}Sprites.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Explosion}
+\begin{DoxyCompactList}\small\item\em Struktura opisujaca explozje. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ EXPL\+\_\+\+NUM}~128
+\begin{DoxyCompactList}\small\item\em Ilosc mozliwych explozji na mapie. \end{DoxyCompactList}\item 
+\#define \textbf{ EXPL\+\_\+\+TIME}~30
+\begin{DoxyCompactList}\small\item\em Najmniejsza jednostka czasu do obliczenia explozji (ile ona istnieje) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ explosion\+\_\+\+Clear\+All} ()
+\begin{DoxyCompactList}\small\item\em Ustawienie statusu wszystkich explozje "{}is\+Active"{} na "{}false"{}. \end{DoxyCompactList}\item 
+void \textbf{ explosion\+\_\+\+Setup} (int index, int x, int y)
+\item 
+void \textbf{ explosion\+\_\+\+Add} (int x, int y)
+\item 
+void \textbf{ explosion\+\_\+\+Draw} ()
+\begin{DoxyCompactList}\small\item\em Rysowanie explozji. \end{DoxyCompactList}\item 
+void \textbf{ explosion\+\_\+\+Update} ()
+\begin{DoxyCompactList}\small\item\em Aktualizacja stanu explozji. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Explosion} \textbf{ expl} [\textbf{ EXPL\+\_\+\+NUM}]
+\begin{DoxyCompactList}\small\item\em Zmiena dla explozji (tablica) \end{DoxyCompactList}\item 
+int \textbf{ radius} = 0
+\begin{DoxyCompactList}\small\item\em Zmiena dla radiusu explozji. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\index{Explosion.h@{Explosion.h}!EXPL\_NUM@{EXPL\_NUM}}
+\index{EXPL\_NUM@{EXPL\_NUM}!Explosion.h@{Explosion.h}}
+\doxysubsubsection{EXPL\_NUM}
+{\footnotesize\ttfamily \label{_explosion_8h_ad7cbeb0bba8c4fa28c28c813fc719c9e} 
+\#define EXPL\+\_\+\+NUM~128}
+
+
+
+Ilosc mozliwych explozji na mapie. 
+
+\index{Explosion.h@{Explosion.h}!EXPL\_TIME@{EXPL\_TIME}}
+\index{EXPL\_TIME@{EXPL\_TIME}!Explosion.h@{Explosion.h}}
+\doxysubsubsection{EXPL\_TIME}
+{\footnotesize\ttfamily \label{_explosion_8h_ac83a08dbac491e4e82b0c43a92a2fe0d} 
+\#define EXPL\+\_\+\+TIME~30}
+
+
+
+Najmniejsza jednostka czasu do obliczenia explozji (ile ona istnieje) 
+
+
+
+\doxysubsection{Function Documentation}
+\index{Explosion.h@{Explosion.h}!explosion\_Add@{explosion\_Add}}
+\index{explosion\_Add@{explosion\_Add}!Explosion.h@{Explosion.h}}
+\doxysubsubsection{explosion\_Add()}
+{\footnotesize\ttfamily \label{_explosion_8h_a4e605c2d81ca9c10977fd57ff9b8c07a} 
+void explosion\+\_\+\+Add (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+Dodawanie explozjii 
+\begin{DoxyParams}{Parameters}
+{\em x} & Wspolrzedne X \\
+\hline
+{\em y} & Wspolrzedne Y \\
+\hline
+\end{DoxyParams}
+\index{Explosion.h@{Explosion.h}!explosion\_ClearAll@{explosion\_ClearAll}}
+\index{explosion\_ClearAll@{explosion\_ClearAll}!Explosion.h@{Explosion.h}}
+\doxysubsubsection{explosion\_ClearAll()}
+{\footnotesize\ttfamily \label{_explosion_8h_a95ad22bc252860deda9bac06315b1ba8} 
+void explosion\+\_\+\+Clear\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ustawienie statusu wszystkich explozje "{}is\+Active"{} na "{}false"{}. 
+
+\index{Explosion.h@{Explosion.h}!explosion\_Draw@{explosion\_Draw}}
+\index{explosion\_Draw@{explosion\_Draw}!Explosion.h@{Explosion.h}}
+\doxysubsubsection{explosion\_Draw()}
+{\footnotesize\ttfamily \label{_explosion_8h_ab6ccd55cb5ffcd5e47be0f57d3c182b8} 
+void explosion\+\_\+\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Rysowanie explozji. 
+
+\index{Explosion.h@{Explosion.h}!explosion\_Setup@{explosion\_Setup}}
+\index{explosion\_Setup@{explosion\_Setup}!Explosion.h@{Explosion.h}}
+\doxysubsubsection{explosion\_Setup()}
+{\footnotesize\ttfamily \label{_explosion_8h_aa6b85fa510cbd16d8026864f7097c54e} 
+void explosion\+\_\+\+Setup (\begin{DoxyParamCaption}\item[{int}]{index}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+Dodawania explozji po kazdej bombie 
+\begin{DoxyParams}{Parameters}
+{\em index} & Indeks dodawanej explozji \\
+\hline
+{\em x} & Wspolrzedne X \\
+\hline
+{\em y} & Wspolrzedne Y \\
+\hline
+\end{DoxyParams}
+\index{Explosion.h@{Explosion.h}!explosion\_Update@{explosion\_Update}}
+\index{explosion\_Update@{explosion\_Update}!Explosion.h@{Explosion.h}}
+\doxysubsubsection{explosion\_Update()}
+{\footnotesize\ttfamily \label{_explosion_8h_a944497e1cbc102d8833727cc3146ed17} 
+void explosion\+\_\+\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Aktualizacja stanu explozji. 
+
+
+
+\doxysubsection{Variable Documentation}
+\index{Explosion.h@{Explosion.h}!expl@{expl}}
+\index{expl@{expl}!Explosion.h@{Explosion.h}}
+\doxysubsubsection{expl}
+{\footnotesize\ttfamily \label{_explosion_8h_a7e50878137b2435b5e78f25c88884235} 
+\textbf{ Explosion} expl[\textbf{ EXPL\+\_\+\+NUM}]}
+
+
+
+Zmiena dla explozji (tablica) 
+
+\index{Explosion.h@{Explosion.h}!radius@{radius}}
+\index{radius@{radius}!Explosion.h@{Explosion.h}}
+\doxysubsubsection{radius}
+{\footnotesize\ttfamily \label{_explosion_8h_a395279899207ce7f17adf9fdb8ee97ee} 
+int radius = 0}
+
+
+
+Zmiena dla radiusu explozji. 
+

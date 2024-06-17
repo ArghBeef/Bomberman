@@ -11,31 +11,39 @@
 #include "Sound.h"
 #include "Explosion.h"
 
+///Ilosc mozliwych bomb na mapie
 #define BOMB_NUM 8
+///Najmniejsza jednostka czasu do obliczenia detonacji bomby
 #define BOMB_TIME 30
 
+//! Struktura opisujaca bombe
 typedef struct BOMBS {
-	int x, y;
-	bool isPlaced;
-	int time;
+	int x; ///< Wspolrzedne X
+	int y; ///< Wspolrzedne Y
+	bool isPlaced; ///< Czy jest ustawiona
+	int time; ///< Czas bomby
 }Bomb;
 
+///Zmiena dla bomb (tablica)
 Bomb bombs[BOMB_NUM];
 
 
-//Set all bombs status isPlaced to false
+//! Ustawienie statusu wszystkich bomb "isPlaced" na "false"
 void bomb_ClearAll() {
 	for (int i = 0; i < BOMB_NUM; i++)
 		bombs[i].isPlaced = false;
 }
 
-//Method to add bomb whenever the player presses the key
+/**
+* Funkcja dodawania bomby za kazdym razem, gdy gracz nacisnie klawisz
+* @param lastX Wspolrzedne X
+* @param lastY Wspolrzedne Y
+*/
 void bomb_Add(int lastX, int lastY) {
 	
 	for (int i = 0; i < BOMB_NUM; i++) {
 		if (bombs[i].isPlaced)
 			continue;
-		//Later add bomb_place sound 
 		bombs[i].time = 0;
 		bombs[i].x = lastX;
 		bombs[i].y = lastY;
@@ -44,7 +52,7 @@ void bomb_Add(int lastX, int lastY) {
 	}
 }
 
-//Method for rendering bomb
+//! Rysowanie bomb na ekranie
 void bomb_Draw() {
 	for (int i = 0; i < BOMB_NUM; i++) {
 		if (!bombs[i].isPlaced)
@@ -60,7 +68,7 @@ void bomb_Draw() {
 	}
 }
 
-//Method for updating bomb state and later explosion (explosion in Explosion.h)
+//! Aktualizacja stanu bomb
 void bomb_Update() {
 	for (int i = 0; i < BOMB_NUM; i++) {
 		if (!bombs[i].isPlaced)
@@ -68,8 +76,6 @@ void bomb_Update() {
 
 		bombs[i].time++; 
 		if (bombs[i].time >= BOMB_TIME*4) { //the default is 90 (arround 3 seconds) but for powerups I will change it (To detonate faster or slower or even controled explode)
-			//Do explosion method here when ready
-			//and also the sounds
 			al_play_sample(sounds.EXPLODE, 0.5, 0.0, 1.0, ALLEGRO_PLAYMODE_ONCE, NULL);
 			explosion_Add(bombs[i].x, bombs[i].y);
 			bombs[i].isPlaced = false;

@@ -1,4 +1,4 @@
-#ifndef EXPLOSION_H
+﻿#ifndef EXPLOSION_H
 #define EXPLOSION_H
 
 #include <stdio.h>
@@ -9,25 +9,37 @@
 
 #include "Sprites.h"
 
+///Ilosc mozliwych explozji na mapie
 #define EXPL_NUM 128
+///Najmniejsza jednostka czasu do obliczenia explozji (ile ona istnieje)
 #define EXPL_TIME 30
 
+//! Struktura opisujaca explozje
 typedef struct  {
-	int x, y;
-	bool isActive;
-    int time;
+    int x; ///< Wspolrzedne X
+    int y; ///< Wspolrzedne Y
+	bool isActive; ///< Czy jest explozja aktywna
+    int time; ///< Czas explozji
 }Explosion;
 
+///Zmiena dla explozji (tablica)
 Explosion expl[EXPL_NUM];
 
-int radius = 0;
 
+int radius = 0; ///< Zmiena dla radiusu explozji
+
+//! Ustawienie statusu wszystkich explozje "isActive" na "false"
 void explosion_ClearAll() {
 	for (int i = 0; i < EXPL_NUM; i++)
 		expl[i].isActive = false;
 }
 
-//Method to add bomb whenever the bomb was placed
+/**
+* Dodawania explozji po kazdej bombie
+* @param index Indeks dodawanej explozji
+* @param x Wspolrzedne X
+* @param y Wspolrzedne Y
+*/
 void explosion_Setup(int index, int x, int y) {
     expl[index].x = x - TILEBLOCK_SPRITE_SIZE;
     expl[index].y = y - TILEBLOCK_SPRITE_SIZE;
@@ -35,6 +47,11 @@ void explosion_Setup(int index, int x, int y) {
     expl[index].isActive = true;
 }
 
+/**
+* Dodawanie explozjii
+* @param x Wspolrzedne X
+* @param y Wspolrzedne Y
+*/
 void explosion_Add(int x, int y) {
     for (int i = 0; i < EXPL_NUM; i++) {
         if (!expl[i].isActive) {
@@ -70,7 +87,7 @@ void explosion_Add(int x, int y) {
     }
 }
 
-// Draw explosions
+//! Rysowanie explozji
 void explosion_Draw() {
     for (int i = 0; i < EXPL_NUM; i++) {
         if (expl[i].isActive) {
@@ -79,7 +96,7 @@ void explosion_Draw() {
     }
 }
 
-// Update explosions
+//! Aktualizacja stanu explozji
 void explosion_Update() {
     for (int i = 0; i < EXPL_NUM; i++) {
         if (expl[i].isActive) {

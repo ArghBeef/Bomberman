@@ -1,0 +1,283 @@
+\doxysection{Player.\+h}
+\label{_player_8h_source}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Player.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Player.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLAYER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLAYER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <allegro5/allegro5.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_image.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_audio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_acodec.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Sprites.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Bomb.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Map.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}Sound.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ BONUS\_TIMERP\ 250;}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }PLAYERS\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ ID;\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ alive;\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ bombPlaced;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ x;\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ y;\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ xBomb;\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ yBomb;\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ reload;\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ currentBonus;\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ bonusTimer;\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ isBonus;\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ score;\ }
+\DoxyCodeLine{00033\ \}\ Player;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ loserID;\ }
+\DoxyCodeLine{00036\ Player\ player1;\ }
+\DoxyCodeLine{00037\ Player\ player2;\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00045\ Player\ player\_Create(\textcolor{keywordtype}{int}\ pID,\ \textcolor{keywordtype}{int}\ pStartPosition)\ \{}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (pID\ >\ 1)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}FAIL:Only\ 0\ and\ 1\ ID\ are\ possible\ for\ the\ player"{}});}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ Player\ player;}
+\DoxyCodeLine{00053\ \ \ \ \ player.ID\ =\ pID;}
+\DoxyCodeLine{00054\ \ \ \ \ player.alive\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00055\ \ \ \ \ player.currentBonus\ =\ 3;}
+\DoxyCodeLine{00056\ \ \ \ \ player.score\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ player.isBonus\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00058\ \ \ \ \ player.bonusTimer\ =\ BONUS\_TIMERP;}
+\DoxyCodeLine{00059\ \ \ \ \ player.bombPlaced\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00060\ \ \ \ \ player.reload\ =\ BOMB\_TIME\ *\ 3;\ \textcolor{comment}{//\ I\ know\ this\ method\ of\ making\ reload\ time\ isnt\ great\ but\ its\ ok\ for\ now\ (at\ least\ na\ pierwszy\ kamien\ mielowy)}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{switch}\ (pStartPosition)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ player.x\ =\ 130;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ player.y\ =\ 80;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ player.x\ =\ 130;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ player.y\ =\ 584;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ player.x\ =\ 1327;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ player.y\ =\ 584;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ player.x\ =\ 1327;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ player.y\ =\ 80;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}FAIL:No\ such\ position.\ Should\ be\ 1,\ 2,\ 3\ or\ 4"{}});}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ player;}
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{bool}\ player\_CheckCollision(\textcolor{keywordtype}{int}\ nextX,\ \textcolor{keywordtype}{int}\ nextY)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ H\ =\ 0;\ H\ <\ TILENUM\_H;\ H++)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ W\ =\ 0;\ W\ <\ TILENUM\_W;\ W++)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (blocks[H][W].collide)\ \{\ \textcolor{comment}{//If\ block\ is\ collidable}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (game\_Collide(nextX,\ nextY,\ nextX\ +\ TILEBLOCK\_SPRITE\_SIZE,\ nextY\ +\ TILEBLOCK\_SPRITE\_SIZE,\ blocks[H][W].x,\ blocks[H][W].y,\ blocks[H][W].x,\ blocks[H][W].y))\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//If\ it\ collides\ return\ true}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00104\ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{bool}\ player\_CheckExplode(Player*\ player)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ EXPL\_NUM;\ i++)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (expl[i].isActive)\ \{}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (game\_Collide(player-\/>x,\ player-\/>y,\ player-\/>x,\ player-\/>y,\ expl[i].x,\ expl[i].y,\ expl[i].x,\ expl[i].y))}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//If\ it\ collides\ with\ explosion}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{bool}\ player\_CheckBonus(Player*\ player)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ BONUS\_NUM;\ i++)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bonus[i].isDropped)\ \{}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (game\_Collide(player-\/>x,\ player-\/>y,\ player-\/>x\ +\ TILEBLOCK\_SPRITE\_SIZE,\ player-\/>y\ +\ TILEBLOCK\_SPRITE\_SIZE,\ bonus[i].x,\ bonus[i].y,\ bonus[i].x\ +\ TILEBLOCK\_SPRITE\_SIZE,\ bonus[i].y\ +\ TILEBLOCK\_SPRITE\_SIZE))\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>currentBonus\ =\ bonus[i].type;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>bonusTimer\ =\ 0;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>isBonus\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bonus[i].isDropped\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//If\ it\ collides\ with\ bonus}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00142\ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ player\_Update(Player*\ player,\ ALLEGRO\_EVENT*\ event,\ Block\ blocks[TILENUM\_H][TILENUM\_W],\ Explosion*\ expl)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (!player-\/>alive)\ \textcolor{comment}{//Set\ a\ flag\ for\ END\ :\ GameState}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{if}\ (player-\/>reload\ <=\ 0)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ player-\/>bombPlaced\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ al\_play\_sample(sounds.RELOAD,\ 0.5,\ 0.0,\ 1.0,\ ALLEGRO\_PLAYMODE\_ONCE,\ NULL);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (player-\/>currentBonus\ ==\ 2)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>reload\ =\ BOMB\_TIME;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ player-\/>reload\ =\ BOMB\_TIME\ *\ 3;}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{int}\ nextX\ =\ player-\/>x;\ \textcolor{comment}{//These\ both\ are\ made\ to\ firstly\ check\ for\ collisions\ and\ if\ so,\ apply\ nextXY\ if\ no\ collisions\ or\ not}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{int}\ nextY\ =\ player-\/>y;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{//\ Controls}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{switch}\ (player-\/>ID)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>type\ ==\ ALLEGRO\_EVENT\_KEY\_DOWN)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_W)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextY\ -\/=\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>xBomb\ =\ nextX;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>yBomb\ =\ nextY\ -\/\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_S)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextY\ +=\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>xBomb\ =\ nextX;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>yBomb\ =\ nextY\ +\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_A)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextX\ -\/=\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>yBomb\ =\ nextY;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>xBomb\ =\ nextX\ -\/\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_D)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextX\ +=\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>yBomb\ =\ nextY;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>xBomb\ =\ nextX\ +\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_LSHIFT)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!player-\/>bombPlaced)\ \{\ \textcolor{comment}{//Later\ I\ will\ change\ so\ player\ can\ place\ more\ than\ one\ bomb\ at\ time\ with\ the\ use\ of\ powerups}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bomb\_Add(player-\/>xBomb,\ player-\/>yBomb);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>bombPlaced\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ al\_play\_sample(sounds.BOMB,\ 0.5,\ 0.0,\ 1.0,\ ALLEGRO\_PLAYMODE\_ONCE,\ NULL);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>type\ ==\ ALLEGRO\_EVENT\_KEY\_DOWN)\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_UP)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextY\ -\/=\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>xBomb\ =\ nextX;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>yBomb\ =\ nextY\ -\/\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_DOWN)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextY\ +=\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>xBomb\ =\ nextX;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>yBomb\ =\ nextY\ +\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_LEFT)\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextX\ -\/=\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>yBomb\ =\ nextY;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>xBomb\ =\ nextX\ -\/\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_RIGHT)\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextX\ +=\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>yBomb\ =\ nextY;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>xBomb\ =\ nextX\ +\ TILEBLOCK\_SPRITE\_SIZE;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>keyboard.keycode\ ==\ ALLEGRO\_KEY\_ENTER)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!player-\/>bombPlaced)\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bomb\_Add(player-\/>xBomb,\ player-\/>yBomb);}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>bombPlaced\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ al\_play\_sample(sounds.BOMB,\ 0.5,\ 0.0,\ 1.0,\ ALLEGRO\_PLAYMODE\_ONCE,\ NULL);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{if}\ (player\_CheckBonus(player))\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ al\_play\_sample(sounds.BONUS,\ 0.5,\ 0.0,\ 1.0,\ ALLEGRO\_PLAYMODE\_ONCE,\ NULL);}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (player-\/>currentBonus)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>score\ +=\ 100;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>bombPlaced\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>score\ +=\ 200;}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ radius\ =\ 1;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>score\ +=\ 300;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (player-\/>ID)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ al\_play\_sample(sounds.SABOTAGE,\ 0.5,\ 0.0,\ 1.0,\ ALLEGRO\_PLAYMODE\_ONCE,\ NULL);}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bomb\_Add(player2.x,\ player2.y);}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ al\_play\_sample(sounds.SABOTAGE,\ 0.5,\ 0.0,\ 1.0,\ ALLEGRO\_PLAYMODE\_ONCE,\ NULL);}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bomb\_Add(player1.x,\ player1.y);}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{if}\ (!player\_CheckCollision(nextX,\ nextY))\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ player-\/>x\ =\ nextX;}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ player-\/>y\ =\ nextY;}
+\DoxyCodeLine{00262\ \ \ \ \ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordflow}{if}\ (player-\/>bombPlaced)}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ player-\/>reload-\/-\/;}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordflow}{if}\ (player\_CheckExplode(player))\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ al\_play\_sample(sounds.KILL,\ 0.5,\ 0.0,\ 1.0,\ ALLEGRO\_PLAYMODE\_ONCE,\ NULL);}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ player-\/>alive\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//Saying\ "{}die"{}\ is\ very\ rude\ so\ lets\ say\ this\ checkexplode\ and\ unalives\ poor\ player}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ State\ =\ END;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ loserID\ =\ player-\/>ID;}
+\DoxyCodeLine{00272\ \ \ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordflow}{if}\ (player-\/>isBonus)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ player-\/>bonusTimer++;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (player-\/>bonusTimer\ >=\ EXPL\_TIME)}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>isBonus\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordflow}{if}\ (player-\/>score\ >\ 2000)\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ State\ =\ END;}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (player-\/>ID)\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ loserID\ =\ 1;}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ loserID\ =\ 0;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00295\ \textcolor{keywordtype}{void}\ player\_Draw(Player*\ player)\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{if}\ (!player-\/>alive)\ \textcolor{comment}{//Make\ game\ end\ (flag)\ depending\ on\ the\ player\ ID}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordflow}{switch}\ (player-\/>ID)\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ al\_draw\_bitmap(sprites.PLAYER0,\ player-\/>x,\ player-\/>y,\ 0);}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ al\_draw\_bitmap(sprites.PLAYER1,\ player-\/>x,\ player-\/>y,\ 0);}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \}}
+\DoxyCodeLine{00308\ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

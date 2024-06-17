@@ -149,7 +149,6 @@
     <ClCompile Include="src\main.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Block.h" />
     <ClInclude Include="src\Bomb.h" />
     <ClInclude Include="src\Bonus.h" />
     <ClInclude Include="src\Explosion.h" />

@@ -1,0 +1,176 @@
+\doxysection{C\+:/\+Users/\+Arghbeef/\+Documents/\+Open\+GL/\+Bomberman/\+Bomberman/src/\+Map.h File Reference}
+\label{_map_8h}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Map.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Map.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+primitives.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include "{}Sprites.\+h"{}}\newline
+{\ttfamily \#include "{}Explosion.\+h"{}}\newline
+{\ttfamily \#include "{}Game.\+h"{}}\newline
+{\ttfamily \#include "{}Bonus.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ BLOCKS}
+\begin{DoxyCompactList}\small\item\em Struktura opisujaca obiekt bloku. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ TILENUM\+\_\+W}~22
+\begin{DoxyCompactList}\small\item\em Ilosc mozliwich blokow na mapie po X. \end{DoxyCompactList}\item 
+\#define \textbf{ TILENUM\+\_\+H}~11
+\begin{DoxyCompactList}\small\item\em Ilosc mozliwich blokow na mapie po Y. \end{DoxyCompactList}\item 
+\#define \textbf{ TILESTART\+\_\+X}~70
+\begin{DoxyCompactList}\small\item\em Miejsce z ktorego zaczyna sie generowanie mapy po X. \end{DoxyCompactList}\item 
+\#define \textbf{ TILESTART\+\_\+Y}~20
+\begin{DoxyCompactList}\small\item\em Miejsce z ktorego zaczyna sie generowanie mapy po Y. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ BLOCKS} \textbf{ Block}
+\begin{DoxyCompactList}\small\item\em Struktura opisujaca obiekt bloku. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ block\+\_\+checkexplode} (\textbf{ Block} $\ast$\textbf{ blocks}, \textbf{ Explosion} explosions[\textbf{ EXPL\+\_\+\+NUM}])
+\item 
+void \textbf{ map\+\_\+\+Update} ()
+\begin{DoxyCompactList}\small\item\em Aktualizowanie i sprawdzanie eksplozje, wykonanie dzialan na tej podstawie. \end{DoxyCompactList}\item 
+int $\ast$$\ast$ \textbf{ map\+\_\+\+Load} ()
+\item 
+void \textbf{ map\+\_\+\+Initialize} (int $\ast$$\ast$maptab)
+\begin{DoxyCompactList}\small\item\em Inicjalizacja -\/ Konwertuj dane tablicy 2D w celu ustrukturyzowania danych blokowych. \end{DoxyCompactList}\item 
+void \textbf{ map\+\_\+\+Draw} (\textbf{ Block} \textbf{ blocks}[\textbf{ TILENUM\+\_\+H}][\textbf{ TILENUM\+\_\+W}])
+\begin{DoxyCompactList}\small\item\em Rysowanie mapy na ekranie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Block} \textbf{ blocks} [\textbf{ TILENUM\+\_\+H}][\textbf{ TILENUM\+\_\+W}]
+\begin{DoxyCompactList}\small\item\em Zmiena dla mapy (tablica 2D blokow) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\index{Map.h@{Map.h}!TILENUM\_H@{TILENUM\_H}}
+\index{TILENUM\_H@{TILENUM\_H}!Map.h@{Map.h}}
+\doxysubsubsection{TILENUM\_H}
+{\footnotesize\ttfamily \label{_map_8h_abe2c98609372d3ab01fa9065f6383eed} 
+\#define TILENUM\+\_\+H~11}
+
+
+
+Ilosc mozliwich blokow na mapie po Y. 
+
+\index{Map.h@{Map.h}!TILENUM\_W@{TILENUM\_W}}
+\index{TILENUM\_W@{TILENUM\_W}!Map.h@{Map.h}}
+\doxysubsubsection{TILENUM\_W}
+{\footnotesize\ttfamily \label{_map_8h_a57d8799abdfad32f5693c8e752c3fdb2} 
+\#define TILENUM\+\_\+W~22}
+
+
+
+Ilosc mozliwich blokow na mapie po X. 
+
+\index{Map.h@{Map.h}!TILESTART\_X@{TILESTART\_X}}
+\index{TILESTART\_X@{TILESTART\_X}!Map.h@{Map.h}}
+\doxysubsubsection{TILESTART\_X}
+{\footnotesize\ttfamily \label{_map_8h_a5cc8b126ea92d9c881d714cec7fa58a1} 
+\#define TILESTART\+\_\+X~70}
+
+
+
+Miejsce z ktorego zaczyna sie generowanie mapy po X. 
+
+\index{Map.h@{Map.h}!TILESTART\_Y@{TILESTART\_Y}}
+\index{TILESTART\_Y@{TILESTART\_Y}!Map.h@{Map.h}}
+\doxysubsubsection{TILESTART\_Y}
+{\footnotesize\ttfamily \label{_map_8h_adba5b883200a55b206ae953aa501eb70} 
+\#define TILESTART\+\_\+Y~20}
+
+
+
+Miejsce z ktorego zaczyna sie generowanie mapy po Y. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\index{Map.h@{Map.h}!Block@{Block}}
+\index{Block@{Block}!Map.h@{Map.h}}
+\doxysubsubsection{Block}
+{\footnotesize\ttfamily \label{_map_8h_aa8d66c2e8e3e60e501c5d1e1aaaead8b} 
+typedef struct \textbf{ BLOCKS} \textbf{ Block}}
+
+
+
+Struktura opisujaca obiekt bloku. 
+
+
+
+\doxysubsection{Function Documentation}
+\index{Map.h@{Map.h}!block\_checkexplode@{block\_checkexplode}}
+\index{block\_checkexplode@{block\_checkexplode}!Map.h@{Map.h}}
+\doxysubsubsection{block\_checkexplode()}
+{\footnotesize\ttfamily \label{_map_8h_ad58501678f925e079ae9a168c5b590d6} 
+bool block\+\_\+checkexplode (\begin{DoxyParamCaption}\item[{\textbf{ Block} $\ast$}]{blocks}{, }\item[{\textbf{ Explosion}}]{explosions}{[\+EXPL\+\_\+\+NUM]}\end{DoxyParamCaption})}
+
+Funkcja do sprawdzania kolizji miedzy blokami i explozja na mapie przez ich wspolrzedne 
+\begin{DoxyRetVals}{Return values}
+{\em TRUE} & Jezeli blok i explozja znajduja sie w tym samym miejscu \\
+\hline
+{\em FALSE} & Przeciwny wypadek \\
+\hline
+\end{DoxyRetVals}
+\index{Map.h@{Map.h}!map\_Draw@{map\_Draw}}
+\index{map\_Draw@{map\_Draw}!Map.h@{Map.h}}
+\doxysubsubsection{map\_Draw()}
+{\footnotesize\ttfamily \label{_map_8h_ae6e06ab111ca30c301362c36390c132d} 
+void map\+\_\+\+Draw (\begin{DoxyParamCaption}\item[{\textbf{ Block}}]{blocks}{[\+TILENUM\+\_\+\+H][\+TILENUM\+\_\+\+W]}\end{DoxyParamCaption})}
+
+
+
+Rysowanie mapy na ekranie. 
+
+\index{Map.h@{Map.h}!map\_Initialize@{map\_Initialize}}
+\index{map\_Initialize@{map\_Initialize}!Map.h@{Map.h}}
+\doxysubsubsection{map\_Initialize()}
+{\footnotesize\ttfamily \label{_map_8h_a763ca523bd126c3f96d2574113b10b91} 
+void map\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{maptab}{}\end{DoxyParamCaption})}
+
+
+
+Inicjalizacja -\/ Konwertuj dane tablicy 2D w celu ustrukturyzowania danych blokowych. 
+
+\index{Map.h@{Map.h}!map\_Load@{map\_Load}}
+\index{map\_Load@{map\_Load}!Map.h@{Map.h}}
+\doxysubsubsection{map\_Load()}
+{\footnotesize\ttfamily \label{_map_8h_ab04a4e083cc69a59055d069fc04c6c2c} 
+int $\ast$$\ast$ map\+\_\+\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Zaladuj mape z pliku tekstowego o nazwie map.\+txt 
+\begin{DoxyRetVals}{Return values}
+{\em } & Zwraca podwojny wskaznik tablicy mapy o typu int \\
+\hline
+\end{DoxyRetVals}
+\index{Map.h@{Map.h}!map\_Update@{map\_Update}}
+\index{map\_Update@{map\_Update}!Map.h@{Map.h}}
+\doxysubsubsection{map\_Update()}
+{\footnotesize\ttfamily \label{_map_8h_ae78972389999aa4715248f9ad2a57265} 
+void map\+\_\+\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Aktualizowanie i sprawdzanie eksplozje, wykonanie dzialan na tej podstawie. 
+
+
+
+\doxysubsection{Variable Documentation}
+\index{Map.h@{Map.h}!blocks@{blocks}}
+\index{blocks@{blocks}!Map.h@{Map.h}}
+\doxysubsubsection{blocks}
+{\footnotesize\ttfamily \label{_map_8h_a2279009182d1cea1942d485c8013d768} 
+\textbf{ Block} blocks[\textbf{ TILENUM\+\_\+H}][\textbf{ TILENUM\+\_\+W}]}
+
+
+
+Zmiena dla mapy (tablica 2D blokow) 
+

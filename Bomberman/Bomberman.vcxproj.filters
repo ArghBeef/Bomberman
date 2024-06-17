@@ -32,9 +32,6 @@
     <ClInclude Include="src\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Block.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Bomb.h">
       <Filter>Header Files</Filter>
     </ClInclude>

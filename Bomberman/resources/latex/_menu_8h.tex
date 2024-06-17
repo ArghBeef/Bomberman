@@ -1,0 +1,101 @@
+\doxysection{C\+:/\+Users/\+Arghbeef/\+Documents/\+Open\+GL/\+Bomberman/\+Bomberman/src/\+Menu.h File Reference}
+\label{_menu_8h}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Menu.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Menu.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+primitives.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+font.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include "{}Sprites.\+h"{}}\newline
+{\ttfamily \#include "{}Player.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ HUD\+\_\+\+STARTX}~550
+\begin{DoxyCompactList}\small\item\em Wspolrzedne poczatku rysowanie hud\`{}u po X. \end{DoxyCompactList}\item 
+\#define \textbf{ HUD\+\_\+\+STARTY}~750
+\begin{DoxyCompactList}\small\item\em Wspolrzedne poczatku rysowanie hud\`{}u po Y. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ hud\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Inicjalizacja hud\`{}a. \end{DoxyCompactList}\item 
+void \textbf{ hud\+\_\+\+Draw} (\textbf{ Player} $\ast$player, int positionx, int positiony)
+\begin{DoxyCompactList}\small\item\em Rysowanie hud\`{}a. \end{DoxyCompactList}\item 
+void \textbf{ hud\+\_\+\+Delete} ()
+\begin{DoxyCompactList}\small\item\em Usuniecie hud\`{}a. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ALLEGRO\+\_\+\+FONT $\ast$ \textbf{ font}
+\begin{DoxyCompactList}\small\item\em Zmiena globalna dla tekstu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\index{Menu.h@{Menu.h}!HUD\_STARTX@{HUD\_STARTX}}
+\index{HUD\_STARTX@{HUD\_STARTX}!Menu.h@{Menu.h}}
+\doxysubsubsection{HUD\_STARTX}
+{\footnotesize\ttfamily \label{_menu_8h_af1a41945edcd91b7c8d382b9ca602ff3} 
+\#define HUD\+\_\+\+STARTX~550}
+
+
+
+Wspolrzedne poczatku rysowanie hud\`{}u po X. 
+
+\index{Menu.h@{Menu.h}!HUD\_STARTY@{HUD\_STARTY}}
+\index{HUD\_STARTY@{HUD\_STARTY}!Menu.h@{Menu.h}}
+\doxysubsubsection{HUD\_STARTY}
+{\footnotesize\ttfamily \label{_menu_8h_a322c97e0bc1336651fce55fff8a91412} 
+\#define HUD\+\_\+\+STARTY~750}
+
+
+
+Wspolrzedne poczatku rysowanie hud\`{}u po Y. 
+
+
+
+\doxysubsection{Function Documentation}
+\index{Menu.h@{Menu.h}!hud\_Delete@{hud\_Delete}}
+\index{hud\_Delete@{hud\_Delete}!Menu.h@{Menu.h}}
+\doxysubsubsection{hud\_Delete()}
+{\footnotesize\ttfamily \label{_menu_8h_ac87d3f6c5879f1694280014a4853f6db} 
+void hud\+\_\+\+Delete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Usuniecie hud\`{}a. 
+
+\index{Menu.h@{Menu.h}!hud\_Draw@{hud\_Draw}}
+\index{hud\_Draw@{hud\_Draw}!Menu.h@{Menu.h}}
+\doxysubsubsection{hud\_Draw()}
+{\footnotesize\ttfamily \label{_menu_8h_a91d03488ecb24e58899f200d8a55ebb5} 
+void hud\+\_\+\+Draw (\begin{DoxyParamCaption}\item[{\textbf{ Player} $\ast$}]{player}{, }\item[{int}]{positionx}{, }\item[{int}]{positiony}{}\end{DoxyParamCaption})}
+
+
+
+Rysowanie hud\`{}a. 
+
+\index{Menu.h@{Menu.h}!hud\_init@{hud\_init}}
+\index{hud\_init@{hud\_init}!Menu.h@{Menu.h}}
+\doxysubsubsection{hud\_init()}
+{\footnotesize\ttfamily \label{_menu_8h_acd4c627dceacec26c9d2d761edcf8f2c} 
+void hud\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Inicjalizacja hud\`{}a. 
+
+
+
+\doxysubsection{Variable Documentation}
+\index{Menu.h@{Menu.h}!font@{font}}
+\index{font@{font}!Menu.h@{Menu.h}}
+\doxysubsubsection{font}
+{\footnotesize\ttfamily \label{_menu_8h_ae4254615de94af5fc74d43e8b676dcf9} 
+ALLEGRO\+\_\+\+FONT$\ast$ font}
+
+
+
+Zmiena globalna dla tekstu. 
+

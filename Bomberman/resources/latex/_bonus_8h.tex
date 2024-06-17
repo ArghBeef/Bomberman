@@ -1,0 +1,149 @@
+\doxysection{C\+:/\+Users/\+Arghbeef/\+Documents/\+Open\+GL/\+Bomberman/\+Bomberman/src/\+Bonus.h File Reference}
+\label{_bonus_8h}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Bonus.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Bonus.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+primitives.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include "{}Sprites.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ BONUS}
+\begin{DoxyCompactList}\small\item\em Struktura opisujaca bonus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ BONUS\+\_\+\+NUM}~32
+\begin{DoxyCompactList}\small\item\em Ilosc mozliwych bonusow na mapie. \end{DoxyCompactList}\item 
+\#define \textbf{ BONUS\+\_\+\+LIFESPAN}~300
+\begin{DoxyCompactList}\small\item\em Czas zycia bonusow. \end{DoxyCompactList}\item 
+\#define \textbf{ BONUS\+\_\+\+RANDOM}~0.\+35
+\begin{DoxyCompactList}\small\item\em Liczba okreslajaca prawdopodobienstwo pojawienia sie bonusu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ BONUS} \textbf{ Bonus}
+\begin{DoxyCompactList}\small\item\em Struktura opisujaca bonus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ bonus\+\_\+\+Clear\+All} ()
+\begin{DoxyCompactList}\small\item\em Ustawienie statusu wszystkich bonusow "{}is\+Dropped"{} na "{}false"{} i "{}lifespan"{} na 0. \end{DoxyCompactList}\item 
+void \textbf{ bonus\+\_\+\+Create} (int x, int y)
+\item 
+void \textbf{ bonus\+\_\+\+Update} ()
+\begin{DoxyCompactList}\small\item\em Aktualizacja stanu bonusow. \end{DoxyCompactList}\item 
+void \textbf{ bonus\+\_\+\+Draw} ()
+\begin{DoxyCompactList}\small\item\em Rysowanie bonusow na ekranie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Bonus} \textbf{ bonus} [\textbf{ BONUS\+\_\+\+NUM}]
+\begin{DoxyCompactList}\small\item\em Zmiena dla bomb (tablica) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\index{Bonus.h@{Bonus.h}!BONUS\_LIFESPAN@{BONUS\_LIFESPAN}}
+\index{BONUS\_LIFESPAN@{BONUS\_LIFESPAN}!Bonus.h@{Bonus.h}}
+\doxysubsubsection{BONUS\_LIFESPAN}
+{\footnotesize\ttfamily \label{_bonus_8h_a9adeb40faf5cc0a3bd80576ecf52b4a5} 
+\#define BONUS\+\_\+\+LIFESPAN~300}
+
+
+
+Czas zycia bonusow. 
+
+\index{Bonus.h@{Bonus.h}!BONUS\_NUM@{BONUS\_NUM}}
+\index{BONUS\_NUM@{BONUS\_NUM}!Bonus.h@{Bonus.h}}
+\doxysubsubsection{BONUS\_NUM}
+{\footnotesize\ttfamily \label{_bonus_8h_a47179f7ff2ca8d85f666a106d00bb7c5} 
+\#define BONUS\+\_\+\+NUM~32}
+
+
+
+Ilosc mozliwych bonusow na mapie. 
+
+\index{Bonus.h@{Bonus.h}!BONUS\_RANDOM@{BONUS\_RANDOM}}
+\index{BONUS\_RANDOM@{BONUS\_RANDOM}!Bonus.h@{Bonus.h}}
+\doxysubsubsection{BONUS\_RANDOM}
+{\footnotesize\ttfamily \label{_bonus_8h_a37619e78df90d8784a411cfe594199dc} 
+\#define BONUS\+\_\+\+RANDOM~0.\+35}
+
+
+
+Liczba okreslajaca prawdopodobienstwo pojawienia sie bonusu. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\index{Bonus.h@{Bonus.h}!Bonus@{Bonus}}
+\index{Bonus@{Bonus}!Bonus.h@{Bonus.h}}
+\doxysubsubsection{Bonus}
+{\footnotesize\ttfamily \label{_bonus_8h_a2fc70b4a6005d6521c644cf13520ba69} 
+typedef struct \textbf{ BONUS} \textbf{ Bonus}}
+
+
+
+Struktura opisujaca bonus. 
+
+
+
+\doxysubsection{Function Documentation}
+\index{Bonus.h@{Bonus.h}!bonus\_ClearAll@{bonus\_ClearAll}}
+\index{bonus\_ClearAll@{bonus\_ClearAll}!Bonus.h@{Bonus.h}}
+\doxysubsubsection{bonus\_ClearAll()}
+{\footnotesize\ttfamily \label{_bonus_8h_afe5d1777a83f12ce278fa555bff57c26} 
+void bonus\+\_\+\+Clear\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ustawienie statusu wszystkich bonusow "{}is\+Dropped"{} na "{}false"{} i "{}lifespan"{} na 0. 
+
+\index{Bonus.h@{Bonus.h}!bonus\_Create@{bonus\_Create}}
+\index{bonus\_Create@{bonus\_Create}!Bonus.h@{Bonus.h}}
+\doxysubsubsection{bonus\_Create()}
+{\footnotesize\ttfamily \label{_bonus_8h_a66b696dec0915477ee554eb537dbf524} 
+void bonus\+\_\+\+Create (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+Dodawania bonusu 
+\begin{DoxyParams}{Parameters}
+{\em x} & Wspolrzedne X \\
+\hline
+{\em y} & Wspolrzedne Y \\
+\hline
+\end{DoxyParams}
+\index{Bonus.h@{Bonus.h}!bonus\_Draw@{bonus\_Draw}}
+\index{bonus\_Draw@{bonus\_Draw}!Bonus.h@{Bonus.h}}
+\doxysubsubsection{bonus\_Draw()}
+{\footnotesize\ttfamily \label{_bonus_8h_a989a6fe033b72823f96ee63f2ab34d30} 
+void bonus\+\_\+\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Rysowanie bonusow na ekranie. 
+
+\index{Bonus.h@{Bonus.h}!bonus\_Update@{bonus\_Update}}
+\index{bonus\_Update@{bonus\_Update}!Bonus.h@{Bonus.h}}
+\doxysubsubsection{bonus\_Update()}
+{\footnotesize\ttfamily \label{_bonus_8h_ae768e1f7b093db601961078b307fed8c} 
+void bonus\+\_\+\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Aktualizacja stanu bonusow. 
+
+
+
+\doxysubsection{Variable Documentation}
+\index{Bonus.h@{Bonus.h}!bonus@{bonus}}
+\index{bonus@{bonus}!Bonus.h@{Bonus.h}}
+\doxysubsubsection{bonus}
+{\footnotesize\ttfamily \label{_bonus_8h_ae24ec6b3efc91254b685eab2cc42b7de} 
+\textbf{ Bonus} bonus[\textbf{ BONUS\+\_\+\+NUM}]}
+
+
+
+Zmiena dla bomb (tablica) 
+

@@ -1,0 +1,107 @@
+\doxysection{C\+:/\+Users/\+Arghbeef/\+Documents/\+Open\+GL/\+Bomberman/\+Bomberman/src/\+Sprites.h File Reference}
+\label{_sprites_8h}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Sprites.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Sprites.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+image.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ SPRITES}
+\begin{DoxyCompactList}\small\item\em Struktura zawierajaca wszystki mozliwe sprajty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ TILEBLOCK\+\_\+\+SPRITE\+\_\+\+SIZE}~63
+\begin{DoxyCompactList}\small\item\em Rozmiar sprajtu w pixelach. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ SPRITES} \textbf{ Sprites}
+\begin{DoxyCompactList}\small\item\em Struktura zawierajaca wszystki mozliwe sprajty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+ALLEGRO\+\_\+\+BITMAP $\ast$ \textbf{ sprite\+\_\+\+Extract\+Bitmap} (int x, int y, int w, int h, \textbf{ Sprites} $\ast$spriteS)
+\begin{DoxyCompactList}\small\item\em Funkcja wyodrebniania wszystkich sprajtow z arkusza sprajtow. \end{DoxyCompactList}\item 
+void \textbf{ sprite\+\_\+\+Load} (\textbf{ Sprites} $\ast$spriteS)
+\begin{DoxyCompactList}\small\item\em Ladowanie sprajtow z arkusza sprajtow. \end{DoxyCompactList}\item 
+void \textbf{ sprites\+\_\+\+Delete} (\textbf{ Sprites} spriteS)
+\begin{DoxyCompactList}\small\item\em Usuwanie wszystkich sprajtow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Sprites} \textbf{ sprites}
+\begin{DoxyCompactList}\small\item\em Zmiena dla sprajtow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\index{Sprites.h@{Sprites.h}!TILEBLOCK\_SPRITE\_SIZE@{TILEBLOCK\_SPRITE\_SIZE}}
+\index{TILEBLOCK\_SPRITE\_SIZE@{TILEBLOCK\_SPRITE\_SIZE}!Sprites.h@{Sprites.h}}
+\doxysubsubsection{TILEBLOCK\_SPRITE\_SIZE}
+{\footnotesize\ttfamily \label{_sprites_8h_aeac4a6593e17509e9a3b25fe891683f1} 
+\#define TILEBLOCK\+\_\+\+SPRITE\+\_\+\+SIZE~63}
+
+
+
+Rozmiar sprajtu w pixelach. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\index{Sprites.h@{Sprites.h}!Sprites@{Sprites}}
+\index{Sprites@{Sprites}!Sprites.h@{Sprites.h}}
+\doxysubsubsection{Sprites}
+{\footnotesize\ttfamily \label{_sprites_8h_ac0aac5048d2188c6f0e5d604a90abfa8} 
+typedef struct \textbf{ SPRITES} \textbf{ Sprites}}
+
+
+
+Struktura zawierajaca wszystki mozliwe sprajty. 
+
+
+
+\doxysubsection{Function Documentation}
+\index{Sprites.h@{Sprites.h}!sprite\_ExtractBitmap@{sprite\_ExtractBitmap}}
+\index{sprite\_ExtractBitmap@{sprite\_ExtractBitmap}!Sprites.h@{Sprites.h}}
+\doxysubsubsection{sprite\_ExtractBitmap()}
+{\footnotesize\ttfamily \label{_sprites_8h_ac13fef0ae6f68f48918670b855ee8ffe} 
+ALLEGRO\+\_\+\+BITMAP $\ast$ sprite\+\_\+\+Extract\+Bitmap (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{w}{, }\item[{int}]{h}{, }\item[{\textbf{ Sprites} $\ast$}]{spriteS}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja wyodrebniania wszystkich sprajtow z arkusza sprajtow. 
+
+\index{Sprites.h@{Sprites.h}!sprite\_Load@{sprite\_Load}}
+\index{sprite\_Load@{sprite\_Load}!Sprites.h@{Sprites.h}}
+\doxysubsubsection{sprite\_Load()}
+{\footnotesize\ttfamily \label{_sprites_8h_aed4851d31bbca0c3ff256c4d22c8c537} 
+void sprite\+\_\+\+Load (\begin{DoxyParamCaption}\item[{\textbf{ Sprites} $\ast$}]{spriteS}{}\end{DoxyParamCaption})}
+
+
+
+Ladowanie sprajtow z arkusza sprajtow. 
+
+\index{Sprites.h@{Sprites.h}!sprites\_Delete@{sprites\_Delete}}
+\index{sprites\_Delete@{sprites\_Delete}!Sprites.h@{Sprites.h}}
+\doxysubsubsection{sprites\_Delete()}
+{\footnotesize\ttfamily \label{_sprites_8h_a9adca60622fd18ee44a504f73666fb06} 
+void sprites\+\_\+\+Delete (\begin{DoxyParamCaption}\item[{\textbf{ Sprites}}]{spriteS}{}\end{DoxyParamCaption})}
+
+
+
+Usuwanie wszystkich sprajtow. 
+
+
+
+\doxysubsection{Variable Documentation}
+\index{Sprites.h@{Sprites.h}!sprites@{sprites}}
+\index{sprites@{sprites}!Sprites.h@{Sprites.h}}
+\doxysubsubsection{sprites}
+{\footnotesize\ttfamily \label{_sprites_8h_a454fb6cce3f70e541db0c71ddb97a69e} 
+\textbf{ Sprites} sprites}
+
+
+
+Zmiena dla sprajtow. 
+

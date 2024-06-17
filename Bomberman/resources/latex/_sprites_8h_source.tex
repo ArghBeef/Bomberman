@@ -1,0 +1,85 @@
+\doxysection{Sprites.\+h}
+\label{_sprites_8h_source}\index{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Sprites.h@{C:/Users/Arghbeef/Documents/OpenGL/Bomberman/Bomberman/src/Sprites.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SPRITE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SPRITE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <allegro5/allegro5.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_image.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ TILEBLOCK\_SPRITE\_SIZE\ 63}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }SPRITES\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ ALLEGRO\_BITMAP*\ spritesheet;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ ALLEGRO\_BITMAP*\ GRASS;}
+\DoxyCodeLine{00017\ \ \ \ \ ALLEGRO\_BITMAP*\ NIKITA;}
+\DoxyCodeLine{00018\ \ \ \ \ ALLEGRO\_BITMAP*\ BRICK;}
+\DoxyCodeLine{00019\ \ \ \ \ ALLEGRO\_BITMAP*\ DESTRUCTABLE;}
+\DoxyCodeLine{00020\ \ \ \ \ ALLEGRO\_BITMAP*\ PLAYER0;}
+\DoxyCodeLine{00021\ \ \ \ \ ALLEGRO\_BITMAP*\ PLAYER1;}
+\DoxyCodeLine{00022\ \ \ \ \ ALLEGRO\_BITMAP*\ BOMBA;}
+\DoxyCodeLine{00023\ \ \ \ \ ALLEGRO\_BITMAP*\ EXPLOSIONE;}
+\DoxyCodeLine{00024\ \ \ \ \ ALLEGRO\_BITMAP*\ GAMEBACK;}
+\DoxyCodeLine{00025\ \}\ Sprites;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ Sprites\ sprites;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ ALLEGRO\_BITMAP*\ sprite\_ExtractBitmap(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ Sprites*\ spriteS)}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ ALLEGRO\_BITMAP*\ sprite\ =\ al\_create\_sub\_bitmap(spriteS-\/>spritesheet,\ x,\ y,\ w,\ h);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (!sprite)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}FAIL:\ Couldnt\ load\ spritesheet-\/bitmap!"{}});}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ sprite;}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ sprite\_Load(Sprites*\ spriteS)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ spriteS-\/>spritesheet\ =\ al\_load\_bitmap(\textcolor{stringliteral}{"{}resources/spritesheet.png"{}});}
+\DoxyCodeLine{00046\ \ \ \ \ spriteS-\/>GAMEBACK\ =\ al\_load\_bitmap(\textcolor{stringliteral}{"{}resources/gameback.png"{}});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (!spriteS-\/>spritesheet)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}FAIL:\ Couldnt\ load\ spritesheet!"{}});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ spriteS-\/>BRICK\ =\ sprite\_ExtractBitmap(0,\ 0,\ TILEBLOCK\_SPRITE\_SIZE,\ TILEBLOCK\_SPRITE\_SIZE,\ spriteS);}
+\DoxyCodeLine{00054\ \ \ \ \ spriteS-\/>DESTRUCTABLE\ =\ sprite\_ExtractBitmap(65,\ 0,\ TILEBLOCK\_SPRITE\_SIZE,\ TILEBLOCK\_SPRITE\_SIZE,\ spriteS);}
+\DoxyCodeLine{00055\ \ \ \ \ spriteS-\/>GRASS\ =\ sprite\_ExtractBitmap(0,\ 65,\ TILEBLOCK\_SPRITE\_SIZE,\ TILEBLOCK\_SPRITE\_SIZE,\ spriteS);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ spriteS-\/>PLAYER0\ =\ sprite\_ExtractBitmap(129,\ 0,\ TILEBLOCK\_SPRITE\_SIZE,\ TILEBLOCK\_SPRITE\_SIZE,\ spriteS);}
+\DoxyCodeLine{00058\ \ \ \ \ spriteS-\/>PLAYER1\ =\ sprite\_ExtractBitmap(129,\ 65,\ TILEBLOCK\_SPRITE\_SIZE,\ TILEBLOCK\_SPRITE\_SIZE,\ spriteS);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ spriteS-\/>BOMBA\ =\ sprite\_ExtractBitmap(193,\ 0,\ TILEBLOCK\_SPRITE\_SIZE,\ TILEBLOCK\_SPRITE\_SIZE,\ spriteS);}
+\DoxyCodeLine{00061\ \ \ \ \ spriteS-\/>EXPLOSIONE\ =\ sprite\_ExtractBitmap(193,\ 65,\ TILEBLOCK\_SPRITE\_SIZE,\ TILEBLOCK\_SPRITE\_SIZE,\ spriteS);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ spriteS-\/>NIKITA\ =\ sprite\_ExtractBitmap(65,\ 65,\ TILEBLOCK\_SPRITE\_SIZE,\ TILEBLOCK\_SPRITE\_SIZE,\ spriteS);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ sprites\_Delete(Sprites\ spriteS)\ \{}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ al\_destroy\_bitmap(spriteS.BOMBA);}
+\DoxyCodeLine{00072\ \ \ \ \ al\_destroy\_bitmap(spriteS.BRICK);}
+\DoxyCodeLine{00073\ \ \ \ \ al\_destroy\_bitmap(spriteS.DESTRUCTABLE);}
+\DoxyCodeLine{00074\ \ \ \ \ al\_destroy\_bitmap(spriteS.EXPLOSIONE);}
+\DoxyCodeLine{00075\ \ \ \ \ al\_destroy\_bitmap(spriteS.GRASS);}
+\DoxyCodeLine{00076\ \ \ \ \ al\_destroy\_bitmap(spriteS.PLAYER0);}
+\DoxyCodeLine{00077\ \ \ \ \ al\_destroy\_bitmap(spriteS.PLAYER1);}
+\DoxyCodeLine{00078\ \ \ \ \ al\_destroy\_bitmap(spriteS.NIKITA);}
+\DoxyCodeLine{00079\ \ \ \ \ al\_destroy\_bitmap(spriteS.GAMEBACK);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ al\_destroy\_bitmap(spriteS.spritesheet);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
